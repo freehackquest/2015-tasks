@@ -1,0 +1,1090 @@
+    Internet Firewalls Frequently Asked Questions
+
+
+
+Original of this document is at
+http://www.v-one.com/pubs/fw-faq/faq.htm
+
+
+
+Internet Firewalls Frequently Asked Questions
+
+FAQ Maintainer: Marcus J. Ranum
+About the FAQ
+
+This FAQ is not an advertisement or endorsement for any product,
+company, or consultant. The maintainer welcomes input and comments on
+the contents of this FAQ. Comments related to the FAQ should be
+addressed to Fwalls-FAQ@v-one.com.
+The FAQ is also available via WWW from http://www.v-one.com. As of this writing, the FAQ's primary format is
+HTML.
+Contents:
+
+
+    What is a
+    network firewall?
+
+
+    Why would
+    I want a firewall?
+
+
+    What can
+    a firewall protect against?
+
+
+    What
+    can't a firewall protect against?
+
+
+    What
+    about virusses?
+
+
+    What
+    are good sources of print information on firewalls?
+
+
+
+    Where can I get more information on firewalls on the  network?
+
+
+    What
+    are some commercial products or consultants who sell/service firewalls?
+
+
+    What
+    are some of the basic design decisions in a firewall?
+
+
+    What are some
+    of the basic types of  firewall?
+
+
+    What
+    are proxy servers and how do they work?
+
+
+
+    What are some cheap packet screening tools?
+
+
+
+    What are some reasonable filtering rules for a Cisco?
+
+
+    How do I
+    make Web/http work with a firewall?
+
+
+    How do I
+    make DNS work with a firewall?
+
+
+    How do I
+    make FTP work through my firewall?
+
+
+    How do
+    I make Telnet work through my firewall?
+
+
+    How do
+    I make Finger and whois work through my firewall?
+
+
+    How do
+    I make gopher, archie, and other services work through my firewall?
+
+
+    What are the
+    issues about X-Window through a firewall?
+
+
+    What
+    is source routed traffic and why is it a threat?
+
+
+    What are
+    ICMP redirects and redirect bombs?
+
+
+    What
+    about denial of service?
+
+
+    Glossary
+    of firewall related terms
+
+    Contributors
+
+
+What is a
+network firewall?
+
+A firewall is a system or group of systems that enforces an access
+control policy between two networks. The actual means by which this is
+accomplished varies widely, but in principle, the firewall can be
+thought of as a pair of mechanisms: one which exists to block traffic,
+and the other which exists to permit traffic. Some firewalls place a
+greater emphasis on blocking traffic, while others emphasize permitting
+traffic. Probably the most important thing to recognize about a firewall
+is that it implements an access control policy. If you don't have a good
+idea what kind of access you want to permit or deny, or you simply
+permit someone or some product to configure a firewall based on what
+they or it think it should do, then they are making policy for your
+organization as a whole.
+Why would I want a firewall?
+
+The Internet, like any other society, is plagued with the kind of
+jerks who enjoy the electronic equivalent of writing on other people's
+walls with spraypaint, tearing their mailboxes off, or just sitting in
+the street blowing their car horns. Some people try to get real work
+done over the Internet, and others have sensitive or proprietary data
+they must protect. Usually, a firewall's purpose is to keep the jerks
+out of your network while still letting you get your job done.
+
+Many
+traditional-style corporations and data centers have computing security
+policies and practices that must be adhered to. In a case where a
+company's policies dictate how data must be protected, a firewall is
+very important, since it is the embodiment of the corporate policy.
+Frequently, the hardest part of hooking to the Internet, if you're a
+large company, is not justifying the expense or effort, but convincing
+management that it's safe to do so. A firewall provides not only real
+security - it often plays an important role as a security blanket for
+management.
+
+Lastly, a firewall can act as your corporate
+"ambassador" to the Internet. Many corporations use their firewall
+systems as a place to store public information about corporate products
+and services, files to download, bug-fixes, and so forth. Several of
+these systems have become important parts of the Internet service
+structure (e.g.: UUnet.uu.net, whitehouse.gov,  gatekeeper.dec.com) and
+have reflected well on their organizational sponsors.
+What can a firewall protect against?
+
+Some firewalls permit only Email traffic through them, thereby
+protecting the network against any attacks other than attacks against
+the Email service. Other firewalls provide less strict protections, and
+block services that are known to be problems.
+
+Generally,
+firewalls are configured to protect against unauthenticated interactive
+logins from the "outside" world. This, more than anything, helps prevent
+vandals from logging into machines on your network. More elaborate
+firewalls block traffic from the outside to the inside, but permit users
+on the inside to communicate freely with the outside. The firewall can
+protect you against any type of network-borne attack if you unplug it.
+
+Firewalls are also important since they can provide a single "choke
+point" where security and audit can be imposed. Unlike in a situation
+where a computer system is being attacked by someone dialing in with a
+modem, the firewall can act as an effective "phone tap" and tracing
+tool. Firewalls provide an important logging and auditing function;
+often they provide summaries to the administrator about what kinds and
+amount of traffic passed through it, how many attempts there were to
+break into it, etc.
+What can't a firewall protect against?
+
+Firewalls can't protect against attacks that don't go through the
+firewall. Many corporations that connect to the Internet are very
+concerned about proprietary data leaking out of the company through that
+route. Unfortunately for those concerned, a magnetic tape can just as
+effectively be used to export data. Many organizations that are
+terrified (at a management level) of Internet connections have no
+coherent policy about how dial-in access via modems should be protected.
+It's silly to build a 6-foot thick steel door when you live in a wooden
+house, but there are a lot of organizations out there buying expensive
+firewalls and neglecting the numerous other back-doors into their
+network. For a firewall to work, it must be a part of a
+consistent overall organizational security architecture.
+Firewall policies must be realistic, and reflect the level of security
+in the entire network. For example, a site with top secret or classified
+data doesn't need a firewall at all: they shouldn't be hooking up to the
+internet in the first place, or the systems with the really secret data
+should be isolated from the rest of the corporate network.
+
+Another
+thing a firewall can't really protect you against is traitors or idiots
+inside your network. While an industrial spy might export information
+through your firewall, he's just as likely to export it through a
+telephone, FAX machine, or floppy disk. Floppy disks are a far more
+likely means for information to leak from your organization than a
+firewall! Firewalls also cannot protect you against stupidity. Users who
+reveal sensitive information over the telephone are good targets for
+social engineering; an attacker may be able to break into your network
+by completely bypassing your firewall, if he can find a "helpful"
+employee inside who can be fooled into giving access to a modem pool.
+What about
+virusses?
+
+Firewalls can't protect very well against things like viruses. There
+are too many ways of encoding binary files for transfer over networks,
+and too many different architectures and viruses to try to search for
+them all. In other words, a firewall cannot replace security-
+consciousness on the part of your users. In general, a firewall cannot
+protect against a data-driven attack -- attacks in which something is
+mailed or copied to an internal host where it is then executed. This
+form of attack has occurred in the past against various versions of
+Sendmail and GhostScript, a freely-available PostScript viewer.
+
+Organizations
+that are deeply concerned about virusses should implement
+organization-wide virus control measures. Rather than trying to screen
+virusses out at the firewall, make sure that every vulnerable desktop
+has virus scanning software that is run when the machine is rebooted.
+Blanketting your network with virus scanning software will protect
+against virusses that come in via floppy disks, modems, and Internet.
+Trying to block virusses at the firewall will only protect against
+virusses from the Internet - and the vast majority of virusses are
+caught via floppy disks.
+What are good sources of print information on firewalls?
+
+There are several books that touch on firewalls. The best known are:
+
+
+    Title: Firewalls and Internet Security: Repelling the Wily Hacker
+    Authors: Bill Cheswick and Steve Bellovin Publisher: Addison Wesley Edition: 1994 ISBN:
+    0-201-63357-4
+
+    Title: Building
+    Internet Firewalls Authors: D. Brent Chapman and Elizabeth Zwicky
+    Publisher: O'Reilly Edition: 1995 ISBN: 1-56592-124-0
+
+    Title: Practical Unix Security Authors: Simson Garfinkel and Gene
+    Spafford Publisher: O'Reilly Edition: 1991 ISBN: 0-937175-72-2
+    (discusses primarily host security)
+
+Related references are:
+
+
+    Titles: Internetworking with TCP/IP  Vols I, II and III Authors:
+    Douglas Comer and David Stevens Publisher: Prentice-Hall Edition: 1991
+    ISBN: 0-13-468505-9 (I), 0-13-472242-6 (II), 0-13-474222-2 (III)
+    Comment: A detailed discussion on the architecture and implementation of
+    the Internet and its protocols. Vol I (on principles, protocols and
+    architecture) is readable by everyone, Vol 2 (on design, implementation
+    and internals) is more technical, and Vol 3 (on client-server computing)
+    is recently out.
+
+    Title: Unix System Security - A Guide for Users and System
+    Administrators Author: David Curry Publisher: Addision Wesley Edition:
+    1992 ISBN: 0-201-56327-4
+
+
+Where can I get more information on firewalls on the network?
+
+
+    Ftp.greatcircle.com
+    - Firewalls mailing list archives. Directory: pub/firewalls
+
+    Firewall Howto
+    - A how-to-build firewalls document.
+
+    Ftp.tis.com -
+    Internet firewall toolkit and papers. Directory: pub/firewalls
+
+    Research.att.com
+    - Papers on firewalls and breakins. Directory: dist/internet_security
+
+    Net.Tamu.edu -
+    Texas AMU security tools. Directory: pub/security/TAMU
+
+    v-one.com - Internet attacks
+    presentation, firewall standards
+
+The internet firewalls mailing list is a forum for firewall
+administrators and implementors. To subscribe to Firewalls, send
+"subscribe firewalls" in the body of a message (not on the "Subject:"
+line) to "Majordomo@GreatCircle.COM". Archives of past Firewalls
+postings are available for anonymous FTP from ftp.greatcircle.com in
+pub/firewalls/archive
+What
+are some commercial products or consultants who sell/service firewalls?
+
+We feel this topic is too sensitive to address in a FAQ, however, an
+independantly maintained list (no warrantee or recommendations are
+implied) can be found at URL:
+http://www.access.digex.net/~bdboyle/firewall.vendor.html
+What
+are some of the basic design decisions in a firewall?
+
+There are a number of basic design issues that should be addressed
+by the lucky person who has been tasked with the responsibility of
+designing, specifying, and implementing or overseeing the installation
+of a firewall.
+
+The first and most important is reflects the
+policy of how your company or organization wants to operate the system:
+is the firewall in place to explicitly deny all services except those
+critical to the mission of connecting to the net, or is the firewall in
+place to provide a metered and audited method of "queuing" access in a
+non-threatening manner. There are degrees of paranoia between these
+positions; the final stance of your firewall may be more the result of a
+political than an engineering decision.
+
+The second is: what level
+of monitoring, redundancy, and control do you want? Having established
+the acceptable risk level (e.g.: how paranoid you are) by resolving the
+first issue, you can form a checklist of what should be monitored,
+permitted, and denied. In other words, you start by figuring out your
+overall objectives, and then combine a needs analysis with a risk
+assessment, and sort the almost always conflicting requirements out into
+a laundry list that specifies what you plan to implement.
+
+The
+third issue is financial. We can't address this one here in anything but
+vague terms, but it's important to try to quantify any proposed
+solutions in terms of how much it will cost either to buy or to
+implement. For example, a complete firewall product may cost between
+$100,000 at the high end, and free at the low end. The free option, of
+doing some fancy configuring on a Cisco or similar router will cost
+nothing but staff time and cups of coffee. Implementing a high end
+firewall from scratch might cost several man- months, which may equate
+to $30,000 worth of staff salary and benefits. The systems management
+overhead is also a consideration. Building a home-brew is fine, but it's
+important to build it so that it doesn't require constant and expensive
+fiddling-with. It's important, in other words, to evaluate firewalls not
+only in terms of what they cost now, but continuing costs such as
+support.
+
+On the technical side, there are a couple of decisions
+to make, based on the fact that for all practical purposes what we are
+talking about is a static traffic routing service placed between the
+network service provider's router and your internal network. The traffic
+routing service may be implemented at an IP level via something like
+screening rules in a router, or at an application level via proxy
+gateways and services.
+
+The decision to make  is whether to place
+an exposed stripped-down machine on the outside network to run proxy
+services for telnet, ftp, news, etc., or whether to set up a screening
+router as a filter, permitting communication with one or more internal
+machines. There are plusses and minuses to both approaches, with the
+proxy machine providing a greater level of audit and potentially
+security in return for increased cost in configuration and a decrease in
+the level of service that may be provided (since a proxy needs to be
+developed for each desired service). The old trade-off between
+ease-of-use and security comes back to haunt us with a vengeance.
+
+What are the basic
+types of firewalls?
+
+Conceptually, there are two types of
+firewalls:
+
+
+    Network Level
+
+    Application Level
+
+They are not as different as you
+might think, and latest technologies are blurring the distinction to the
+point where it's no longer clear if either one is "better" or "worse."
+As always, you need to be careful to pick the type that meets your
+needs.
+
+Network level firewalls generally make
+their decisions based on the source, destination addresses and ports  in
+individual IP packets. A simple router is the "traditional" network
+level firewall, since it is not able to make particularly sophisticated
+decisions about what a packet is actually talking to or where it
+actually came from. Modern network level firewalls have become
+increasingly sophisticated, and now maintain internal information about
+the state of connections passing through them, the contents of some of
+the data streams, and so on. One thing that's an important distinction
+about many network level firewalls is that they route traffic directly
+though them, so to use one you usually need to have a validly assigned
+IP address block. Network level firewalls tend to be very fast and tend
+to be very transparent to users.
+
+
+Example
+Network level firewall: In this example, a network level
+firewall called a "screened host firewall" is represented. In a screened
+host firewall, access to and from a single host is controlled by means
+of a router operating at a network level. The single host is a bastion
+host; a highly-defended and secured strong-point that (hopefully) can
+resist attack.
+
+
+Example Network
+level firewall: In this example, a network level firewall
+called a "screened subnet firewall" is represented. In a screened subnet
+firewall, access to and from a whole network is controlled by means of a
+router operating at a network level. It is similar to a screened host,
+except that it is, effectively, a network of screened hosts.
+
+
+Application level firewalls generally are hosts running proxy
+servers, which permit no traffic directly between networks, and which
+perform elaborate logging and auditing of traffic passing through them.
+Since the proxy applications are sopftware components running on the
+firewall, it is a good place to do lots of logging and access control.
+Application level firewalls can be used as network address translators,
+since traffic goes in one "side" and out the other, after having passed
+through an application that effectively masks the origin of the
+initiating connection. Having an application in the way in some cases
+may impact performance and may make the firewall less transparent. Early
+application level firewalls such as those built using the TIS firewall
+toolkit, are not particularly transparent to end users and may require
+some training. Modern application level firewalls are often fully
+transparent. Application level firewalls tend to provide more detailed
+audit reports and tend to enforce more conservative security models than
+network level firewalls.
+
+
+Example
+Application level firewall: In this example, an application
+level firewall called a "dual homed gateway" is represented. A dual
+homed gateway  is a highly secured host that runs proxy software. It has
+two network interfaces, one on each network, and blocks all traffic
+passing through it.
+
+The Future of firewalls
+lies someplace between network level firewalls and application level
+firewalls. It is likely that network level firewalls will become
+increasingly "aware" of the information going through them, and
+application level firewalls will become increasingly "low level" and
+transparent. The end result will be a fast packet-screening system that
+logs and audits data as it passes through. Increasingly, firewalls
+(network and application layer) incorporate encryption so that they may
+protect traffic passing between them over the Internet. Firewalls with
+end-to-end encryption can be used by organizations with multiple points
+of Internet connectivity to use the Internet as a "private backbone"
+without worrying about their data or passwords being sniffed.
+What are proxy servers and how do they work?
+
+A proxy server (sometimes referred to as an application gateway or
+forwarder) is an application that mediates traffic between a protected
+network and the Internet. Proxies are often used instead of router-based
+traffic controls, to prevent traffic from passing directly between
+networks. Many proxies contain extra logging or support for user
+authentication. Since proxies must "understand" the application protocol
+being used, they can also implement protocol specific security (e.g., an
+FTP proxy might be configurable to permit incoming FTP and block
+outgoing FTP).
+
+Proxy servers are application specific. In order
+to support a new protocol via a proxy, a proxy must be developed for it.
+One popular set of proxy servers is the TIS Internet Firewall Toolkit
+("FWTK") which includes proxies for Telnet, rlogin, FTP, X-Window,
+http/Web, and NNTP/Usenet news. SOCKS is a generic proxy system that can
+be compiled into a client-side application to make it work through a
+firewall. Its advantage is that it's easy to use, but it doesn't support
+the addition of authentication hooks or protocol specific logging. For
+more information on SOCKS, see
+ftp.nec.com:
+/pub/security/socks.cstc  Users are encouraged to check the file
+"FILES" for a description of the directory's contents.
+
+What are some cheap packet screening tools?
+
+The Texas AMU security tools include software for implementing
+screening routers (FTP net.tamu.edu, pub/security/TAMU).  Karlbridge is
+a PC-based screening router kit ftp://ftp.net.ohio-state.edu/pub/kbridge. A version of the Digital
+Equipment Corporation "screend" kernel screening software is available
+for BSD/386, NetBSD, and BSDI.
+There is a kernel-level packet screen called
+ipfilter
+available for free, for BSD-based systems.
+Many commercial routers support screening
+of various forms.
+
+What are some reasonable filtering rules for a Cisco?
+
+The following example shows one possible configuration for using the
+Cisco as filtering router. It is a sample that shows the implementation of
+as specific policy. Your policy will undoubtedly vary.
+
+
+
+In this example, a company has Class C network address 195.55.55.0.
+Company network is connected to Internet via IP Service Provider.
+Company policy is to allow everybody access to Internet services, so all outgoing connections are accepted. All incoming connections go through "mailhost". Mail and DNS are only incoming services.
+Implementation
+
+
+    Allow all outgoing TCP-connections
+    Allow incoming SMTP and DNS to mailhost
+    Allow incoming FTP data connections to high TCP port (>1024)
+    Try to protect services that live on high port numbers
+
+
+Only incoming packets from Internet are checked in this configuration.
+Rules are tested in order and stop when flag is firstlevel the first match is found.
+There is an implicit deny rule at the end of an access list that
+denies everything. This IP access lists assumes that you are running
+Cisco IOS v. 10.3 or later.
+
+
+    no ip source-route
+    !
+    interface ethernet 0
+    ip address 195.55.55.1
+    !
+    interface serial 0
+    ip access-group 101 in
+    !
+    access-list 101 deny   ip	195.55.55.0 0.0.0.255
+    access-list 101 permit tcp	any	any	established
+    !
+    access-list 101 permit tcp	any	host 195.55.55.10	eq smtp
+    access-list 101 permit tcp	any	host 195.55.55.10	eq dns
+    access-list 101 permit udp	any	host 192.55.55.10	eq dns
+    !
+    access-list 101 deny tcp	any	any	range 6000 6003
+    access-list 101 deny tcp	any	any	range 2000 2003
+    access-list 101 deny tcp	any	any	eq 2049
+    access-list 101 deny udp	any	any	eq 204
+    !
+    access-list 101 permit tcp	any 20	any	gt 1024
+    !
+    access-list 101 permit icmp	any	any
+    !
+    snmp-server community FOOBAR  RO  2
+    line vty 0 4
+    access-class 2 in
+    access-list 2 permit 195.55.55.0 255.255.255.0
+
+
+
+Explanations
+
+
+
+    Drop all source-routed packets. Source routing can be used for address spoofing.
+    If incoming packet claims to be from local net, drop it.
+    All packets which are part of already established TCP-connections
+    can pass through without further checking.
+    All connections to low port numbers are blocked except SMTP
+    and DNS.
+    Block all services that listen TCP connections in high port numbers. X-windows (port 6000+), OpenWindows (port 2000+) are few candidates. NFS (port 2049) runs usually over UDP, but it can be run over NFS, so you have better block it.
+    Incoming connections from port 20 into high port numbers are
+    supposed to be FTP data connections.
+    Access-list 2 limits access to router itself (telnet & SNMP)
+    All UDP traffic is blocked to protect RPC services
+
+
+
+Shortcomings
+
+
+    You cannot enforce strong access policies with router access lists.
+    Users can easily install backdoors to their systems to get over
+    "no incoming telnet" or "no X" rules. Also crackes install telnet
+    backdoors on systems where they break in.
+    You can never be sure what services you have listening connections on
+    high port numbers.
+    Checking source port on incoming FTP data connections is a weak
+    security method. It also breaks access to some FTP sites.
+    It makes users more difficult to use their backdoors, but doesn't
+    prevent hackers to scan your systems.
+
+
+Use at least Cisco version 9.21 so you can filter incoming packets and check
+for address spoofing. It's still better to use 10.3, where you get some extra features (like filtering on source port) and some improvements on filter syntax.
+
+You have still a few ways to make your setup stronger. Block all incoming TCP-connections and tell users to use passive-FTP clients. You can also
+block outgoing icmp echo-reply and destination-unreachable
+messages to hide your network and to prevent use of network scanners.
+
+Cisco.com has an archive of examples for building firewalls using Cisco routers (ftp://ftp.cisco.com/pub/acl-examples.tar.Z) Those examples are a bit out-of-date, but there are some perl scripts which are pretty useful, once adjusted for your network.
+
+How do I make Web/HTTP work through my firewall?
+
+There are
+3 ways to do it - Pick one:
+
+
+    Allow "established" connections out via a router, if you are using
+    screening routers.
+
+    Use a Web client that supports SOCKS, and run SOCKS on your
+    firewall.
+
+    Run some kind of proxy-capable Web server on the firewall. The TIS
+    firewall toolkit includes a proxy called http-gw, which proxies Web,
+    gopher/gopher+ and FTP. CERN httpd also has a proxy capability, which
+    many sites use in combination with the server's ability to cache
+    frequently accessed pages. Many Web clients have proxy server support
+    (Netscape, Mosaic, Spry, Chameleon, etc) built directly into them.
+
+How do I make DNS
+work with a firewall?
+
+Some organizations want to hide DNS names from the outside. Many
+experts don't think hiding DNS names is worthwhile, but if
+site/corporate policy mandates hiding domain names, this is one approach
+that is known to work. Another reason you may have to hide domain names
+is if you have a non-standard addressing scheme on your internal
+network. In that case, you have no choice but to hide those addresses.
+Don't fool yourself into thinking that if your DNS names are hidden that
+it will slow an attacker down much if they break into your firewall.
+Information about what is on your network is too easily gleaned from the
+networking layer itself. If you want an interesting demonstration of
+this, ping the subnet broadcast address on  your LAN and then do an "arp
+-a."  Note also that hiding names in the DNS doesn't address the problem
+of host names "leaking" out in mail headers, news articles, etc.
+
+This
+approach is one of many, and is useful for organizations that wish to
+hide their host names from the Internet. The success of this approach
+lies on the fact that DNS clients on a machine don't have to talk to a
+DNS server on that same machine.  In other words, just because there's a
+DNS server on a machine, there's nothing wrong with (and there are often
+advantages to) redirecting that machine's DNS client activity to a DNS
+server on another machine.
+
+First, you set up a DNS server on the
+bastion host that the outside world can talk to. You set this server up
+so that it claims to be authoritative for your domains.  In fact, all
+this server knows is what you want the outside world to know; the names
+and addresses of your gateways, your wildcard MX records, and so forth.
+This is the "public" server.
+
+Then, you set up a DNS server on an
+internal machine.  This server also claims to be authoritiative for your
+domains; unlike the public server, this one is telling the truth. This
+is your "normal" nameserver, into which you put all your "normal" DNS
+stuff.  You also set this server up to forward queries that it can't
+resolve to the public server (using a "forwarders" line in
+/etc/named.boot on a UNIX machine, for example).
+
+Finally, you set
+up all your DNS clients (the /etc/resolv.conf file on a UNIX
+box, for instance), including the ones on the machine with the public
+server, to use the internal server.  This is the key.
+
+An internal
+client asking about an internal host asks the internal server, and gets
+an answer; an internal client asking about an external host asks the
+internal server, which asks the public server, which asks the Internet,
+and the answer is relayed back.  A client on the public server works
+just the same way.  An external client, however, asking about an
+internal host gets back the "restricted" answer from the public server.
+
+This approach assumes that there's a packet filtering firewall between
+these two servers that will allow them to talk DNS to each other, but
+otherwise restricts DNS between other hosts.
+
+Another trick that's
+useful in this scheme is to employ wildcard PTR records in your
+IN-ADDR.ARPA domains. These cause an an address-to-name lookup for any
+of your non- public hosts to return something like "unknown.YOUR.DOMAIN"
+rather than an error.  This satisfies anonymous FTP sites like
+ftp.uu.net that insist on having a name for the machines they talk to.
+This may fail when talking to sites that do a DNS cross-check in which
+the host name is matched against its address and vice versa.
+How do I make FTP work through my firewall?
+
+Generally, making FTP work through the firewall is done either using
+a proxy server such as the firewall toolkit's ftp-gw or by permitting
+incoming connections to the network at a restricted port range, and
+otherwise restricting incoming connections using something like
+"established" screening rules. The FTP client is then modified to bind
+the data port to a port within that range. This entails being able to
+modify the FTP client application on internal hosts.
+
+In some
+cases, if FTP downloads are all you wish to support, you might want to
+consider declaring FTP a "dead protocol" and letting you users download
+files via the Web instead. The user interface certainly is nicer, and it
+gets around the ugly callback port problem. If you choose the
+FTP-via-Web approach, your users will be unable to FTP files out, which,
+depending on what you are trying to accomplish, may be a problem.
+
+A
+different approach is to use the FTP "PASV" option to indicate that the
+remote FTP server should permit the client to initiate connections. The
+PASV approach assumes that the FTP server on the remote system supports
+that operation. (See RFC1579 for more information)
+
+Other sites
+prefer to build client versions of the FTP program that are linked
+against a SOCKS library.
+How do I make Telnet work through my firewall?
+
+Telnet is generally supported either by using an application proxy
+such as the firewall toolkit's tn-gw, or by simply configuring a router
+to permit outgoing connections using something like the "established"
+screening rules. Application proxies could be in the form of a
+standalone proxy running on the bastion host, or in the form of a SOCKS
+server and a modified client.
+How do I make Finger and whois work through my firewall?
+
+Many firewall admings permit connections to the finger port from
+only trusted machines, which can issue finger requests in the form of:
+finger user@host.domain@firewall. This approach only works with the
+standard UNIX version of finger. Controlling access to services and
+restricting them to specific machines is managed using either
+tcp_wrappers or netacl from the firewall toolkit. This approach will not
+work on all systems, since some finger servers do not permit
+user@host@host fingering.
+
+Many sites block inbound finger
+requests for a variety of reasons, foremost being past security bugs in
+the finger server (the Morris internet worm made these bugs famous) and
+the risk of proprietary or sensitive information being revealed in
+user's finger information. In general, however, if your users are
+accostomed to putting proprietary or sensitive information  in their.plan
+files, you have a more serious security problem than just a firewall can
+solve.
+How
+do I make gopher, archie, and other services work through my firewall?
+
+The majority of firewall administrators choose to support gopher and
+archie through Web proxies, instead of directly. Proxies such as the
+firewall toolkit's http-gw convert gopher/gopher+ queries into HTML and
+vice versa. For supporting archie and other queries, many sites rely on
+Internet-based Web-to-archie servers, such as ArchiePlex. The Web's
+tendency to make everything on the Internet look like a Web service is
+both a blessing and a curse.
+
+There are many new services
+constantly cropping up. Often they are misdesigned or are not designed
+with security in mind, and their designers will cheerfully tell you if
+you want to use them you need to let port xxx through your router.
+Unfortunately, not everyone can do that, and so a number of interesting
+new toys are difficult to use for people behind firewalls. Things like
+RealAudio, which require direct UDP access, are particularly egregious
+examples. The thing to bear in mind if you find yourself faced with one
+of these problems is to find out as much as you can about the security
+risks that the service may present, before you just allow it  through.
+It's quite possible the service has no security implications. It's
+equally possible that it has undiscovered holes you could drive a truck
+through.
+What are
+the issues about X-Window through a firewall?
+
+X Windows is a very useful system, but unfortunately has some major
+security flaws. Remote systems that can gain or spoof access to a
+workstation's X display can monitor keystrokes that a user enters,
+download copies of the contents of their windows, etc.
+
+While attempts have been made to overcome them (E.g., MIT "Magic
+Cookie") it is still entirely too easy for an attacker to interfere with
+a user's X display.  Most firewalls block all X traffic. Some permit X
+traffic through application proxies such as the DEC CRL X proxy (FTP
+crl.dec.com). The firewall toolkit includes a proxy for X, called x-gw,
+which a user can invoke via the Telnet proxy, to create a virtual X
+server on the firewall. When requests are made for an X connection on
+the virtual X server, the user is presented with a pop-up asking them if
+it is OK to allow the connection. While this is a little unaesthetic,
+it's entirely in keeping with the rest of X.
+What is source routed traffic and why is it a threat?
+  
+
+Normally,
+the route a packet takes from its source to its destination is
+determined by the routers between the source and destination.  The
+packet itself only says where it wants to go (the destination address),
+and nothing about how it expects to get there.
+
+There is an
+optional way for the sender of a packet (the source) to include
+information in the packet that tells the route the packet should get to
+its destination; thus the name "source routing". For a firewall, source
+routing is noteworthy, since an attacker can generate traffic claiming
+to be from a system "inside" the firewall. In general, such traffic
+wouldn't route to the firewall properly, but with the source routing
+option, all the routers between the attacker's machine and the target
+will return traffic along the reverse path of the source route.
+Implementing such an attack is quite easy; so firewall builders should
+not discount it as unlikely to happen.
+
+In practice, source
+routing is very little used.  In fact, generally the main legitimate use
+is in debugging network problems or routing traffic over specific links
+for congestion control for specialized situations. When building a
+firewall, source routing should be blocked at some point. Most
+commercial routers incorporate the ability to block source routing
+specifically, and many versions of UNIX that might be used to build
+firewall bastion hosts have the ability to disable or ignore source
+routed traffic.
+What are ICMP redirects and redirect bombs?
+  
+
+An ICMP
+Redirect tells the recipient system to over-ride something in its
+routing table. It is legitimately used by routers to tell hosts that the
+host is using a non-optimal or defunct route to a particular
+destination, i.e. the host is sending it to the wrong router. The wrong
+router sends the host back an ICMP Redirect packet that tells the host
+what the correct route should be. If you can forge ICMP Redirect
+packets, and if your target host pays attention to them, you can alter
+the routing tables on the host and possibly subvert the security of the
+host by causing traffic to flow via a path the network manager didn't
+intend. ICMP Redirects also may be employed for denial of service
+attacks, where a host is sent a route that loses it connectivity, or is
+sent an ICMP Network Unreachable packet telling it that it can no longer
+access a particular network.
+
+Many firewall builders screen ICMP
+traffic from their network, since it limits the ability of outsiders to
+ping hosts, or modify their routing tables.
+What about denial of service?
+  
+
+Denial of service is when
+someone decides to make your network or firewall useless by disrupting
+it, crashing it, jamming it, or flooding it. The problem with denial of
+service on the Internet is that it is impossible to prevent. The reason
+has to do with the distributed nature of the network: every network node
+is connected via other networks which in turn connect to other networks,
+etc. A firewall administrator or ISP only has control of a few of the
+local elements within reach. An attacker can always disrupt a connection
+"upstream" from where the victim controls it. In other words, if someone
+wanted to take a network off the air, they could do it either by taking
+the network off the air, or by taking the networks it connects to off
+the air, ad infinitum. There are many, many, ways someone can deny
+service, ranging from the complex to the brute-force. If you are
+considering using Internet for a service which is absolutely time or
+mission critical, you should consider your fall-back position in the
+event that  the network is down or damaged.
+Glossary of firewall related terms
+
+
+Abuse of Privilege:
+
+     When a user performs an action that they should not have,
+    according to organizational policy or law.
+
+Application-Level Firewall:
+
+     A firewall system in which service is provided by processes that
+    maintain complete TCP connection state and sequencing. Application level
+    firewalls often re-address traffic so that outgoing traffic appears to
+    have originated from the firewall, rather than the internal host.
+
+Authentication:
+
+     The process of determining the identity of a user that is
+    attempting to access a system.
+
+Authentication Token:
+
+     A portable device used for authenticating a user. Authentication
+    tokens operate by challenge/response, time-based code sequences, or
+    other techniques. This may include paper-based lists of one-time
+    passwords.
+
+Authorization:
+
+     The process of determining what types of activities are permitted.
+    Usually, authorization is in the context of authentication: once you
+    have authenticated a user, they may be authorized different types of
+    access or activity.
+
+Bastion Host:
+
+     A system that has been hardened to resist attack, and which is
+    installed on a network in such a way that it is expected to potentially
+    come under attack. Bastion hosts are often components of firewalls, or
+    may be "outside" Web servers or public access systems.
+    Generally, a bastion host is running some form of general purpose
+    operating system (e.g., UNIX, VMS, WNT, etc.) rather than a ROM-based or
+    firmware operating system.
+
+Challenge/Response:
+
+     An authentication technique whereby a server sends an
+    unpredictable challenge to the user, who computes a response using some
+    form of authentication token.
+
+Chroot: 
+
+    A technique under UNIX whereby a process is permanently restricted
+    to an isolated subset of the filesystem.
+
+Cryptographic Checksum:
+
+     A one-way function applied to a file to produce a unique "fingerprint"
+    of the file for later reference. Checksum systems are a primary means of
+    detecting filesystem tampering on UNIX.
+
+Data Driven Attack:
+
+     A form of attack in which the attack is encoded in
+    innocuous-seeming data which is executed by a user or other software to
+    implement an attack. In the case of firewalls, a data driven attack is a
+    concern since it may get through the firewall in data form and launch an
+    attack against a system behind the firewall.
+
+Defense in Depth:
+
+     The security approach whereby each system on the network is
+    secured to the greatest possible degree. May be used in conjunction with
+    firewalls.
+
+DNS spoofing:
+
+     Assuming the DNS name of another system by either corrupting the
+    name service cache of a victim system, or by compromising a domain name
+    server for a valid domain.
+
+Dual Homed Gateway:
+
+     A dual homed gateway is a system that has two or more network
+    interfaces, each of which is connected to a different network. In
+    firewall configurations, a dual homed gateway usually acts to block or
+    filter some or all of the traffic trying to pass between the networks.
+
+Encrypting Router:
+
+     see Tunneling Router and Virtual Network Perimeter.
+
+Firewall:
+
+     A system or combination of systems that enforces a boundary
+    between two or more networks.
+
+Host-based Security:
+
+     The technique of securing an individual system from attack. Host
+    based security is operating system and version dependent.
+
+Insider Attack:
+
+     An attack originating from inside a protected network.
+
+Intrusion Detection:
+
+     Detection of break-ins or break-in attempts either manually or via
+    software expert systems that operate on logs or other information
+    available on the network.
+
+IP Spoofing:
+
+     An attack whereby a system attempts to illicitly impersonate
+    another system by using its IP network address.
+
+IP Splicing / Hijacking:
+
+     An attack whereby an active, established, session is intercepted
+    and co-opted by the attacker. IP Splicing attacks may occur after an
+    authentication has been made, permitting the attacker to assume the role
+    of an already authorized user. Primary protections against IP Splicing
+    rely on encryption at the session or network layer.
+
+Least Privilege:
+
+     Designing operational aspects of a system to operate with a
+    minimum amount of system privilege. This reduces the authorization level
+    at which various actions are performed and decreases the chance that a
+    process or user with high privileges may be caused to perform
+    unauthorized activity resulting in a security breach.
+
+Logging:
+
+     The process of storing information about events that occurred on
+    the firewall or network.
+
+Log Retention:
+
+     How long audit logs are retained and maintained.
+
+Log Processing:
+
+     How audit logs are processed, searched for key events, or
+    summarized.
+
+Network-Level Firewall:
+
+     A firewall in which traffic is examined at the network protocol
+    packet level.
+
+Perimeter-based Security:
+
+     The technique of securing a network by controlling access to all
+    entry and exit points of the network.
+
+Policy:
+
+     Organization-level rules governing acceptable use of computing
+    resources, security practices, and operational procedures.
+
+Proxy:
+
+     A software agent that acts on behalf of a user. Typical proxies
+    accept a connection from a user, make a decision as to whether or not
+    the user or client IP address is permitted to use the proxy, perhaps
+    does additional authentication, and then completes a connection on
+    behalf of the user to a remote destination.
+
+Screened Host:
+
+     A host on a network behind a screening router. The degree to which
+    a screened host may be accessed depends on the screening rules in the
+    router.
+
+Screened Subnet:
+
+     A subnet behind a screening router. The degree to which the subnet
+    may be accessed depends on the screening rules in the router.
+
+Screening Router:
+
+     A router configured to permit or deny traffic based on a set of
+    permission rules installed by the administrator.
+
+Session Stealing: 
+
+    See IP Splicing.
+
+Trojan Horse:
+
+     A software entity that appears to do something normal but which,
+    in fact, contains a trapdoor or attack program.
+
+Tunneling Router:
+
+     A router or system capable of routing traffic by encrypting it and
+    encapsulating it for transmission across an untrusted network, for
+    eventual de-encapsulation and decryption.
+
+Social Engineering:
+
+     An attack based on deceiving users or administrators at the target
+    site. Social engineering attacks are typically carried out by
+    telephoning users or operators and pretending to be an authorized user,
+    to attempt to gain illicit access to systems.
+
+Virtual Network Perimeter:
+
+     A network that appears to be a single protected network behind
+    firewalls, which actually encompasses encrypted virtual links over
+    untrusted networks.
+
+Virus:
+
+     A self-replicating code segment. Viruses may or may not contain
+    attack programs or trapdoors.
+
+Contributors:
+
+
+    Primary Author: mjr@v-one.com - Marcus Ranum, V-ONE Corporation
+
+    Cisco Config (V2.0): vjk@relevantum.fi -  Keinanen Vesa
+
+    Cisco Config (V1.0): allen@msen.com - Allen Leibowitz
+
+    DNS Hints: brent@greatcircle.com - Brent Chapman, Great Circle Associates
+
+    Policy Brief: bdboyle@erenj.com -  Brian Boyle, Exxon Research
+
+
+
+BACK
+
+Copyright(C) 1995 Marcus J. Ranum. All rights reserved. This
+document may be used, reprinted, and redistributed as is
+providing this copyright notice and all attributions remain intact.
+
+
+Популярность: 45, Last-modified: Wed, 16 Apr 1997 10:40:24 GMT
+
+
+
