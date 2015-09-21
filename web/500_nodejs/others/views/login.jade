@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+	meta(charset="UTF-8")
+	title Document
+	link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+	link(rel='stylesheet', href='static/main.css')
+body
+	.container
+		h1.login-title Log In
+
+		form.login-form(action='/login', method='post')
+			.form-group
+				label Login:
+				input.form-control(name='username')
+			.form-group
+				label Password:
+				input.form-control(name='password' type='password')
+
+			input.btn.btn-default.btn-block(type='submit' value='Log In')
+
