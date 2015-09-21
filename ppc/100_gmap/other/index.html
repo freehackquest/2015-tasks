@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript" src="data.js?ver=201503281358"></script>
+		<script type="text/javascript">
+			function getPosition(event)
+			{
+				var x = new Number();
+				var y = new Number();
+				var canvas = document.getElementById("myCanvas");
+
+				if (event.x != undefined && event.y != undefined) {
+					x = event.x;
+					y = event.y;
+				}
+				else // Firefox method to get the position
+				{
+					x = event.clientX + document.body.scrollLeft +
+					  document.documentElement.scrollLeft;
+					y = event.clientY + document.body.scrollTop +
+					  document.documentElement.scrollTop;
+				}
+
+				x -= canvas.offsetLeft;
+				y -= canvas.offsetTop;
+
+				document.getElementById("coordinates").innerHTML += "\t{x: " + x + ", y: " + y + "},\n";
+			}
+
+			function printData() {
+				var canvas = document.getElementById("myCanvas");
+				canvas.addEventListener("mousedown", getPosition, false);
+				var ctx = canvas.getContext("2d");
+				var startPoint = {};
+				for (var i = 0; i < data.length; i++) {
+					if (i == 0) {
+						startPoint = data[i];
+					} else {
+						ctx.moveTo(startPoint.x,startPoint.y);
+						ctx.lineTo(data[i].x,data[i].y);
+						ctx.stroke();
+						startPoint = data[i];
+					}
+				}
+			}
+		</script>
+	</head>
+	<body onload="printData();">
+			<canvas id="myCanvas" width="600" height="500" style="border:1px solid #000000;">
+			</canvas>
+			<pre id="coordinates"></pre>
+	</body>
+</html>
