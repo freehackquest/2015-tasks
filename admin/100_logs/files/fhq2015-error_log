@@ -1,0 +1,33 @@
+[Thu Sep 03 09:03:54 2015] [error] [client 91.210.184.225] File does not exist: /var/www/fhq2015/favicon.ico
+[Thu Sep 03 09:03:54 2015] [error] [client 91.210.184.225] File does not exist: /var/www/fhq2015/favicon.ico
+[Thu Sep 03 09:03:54 2015] [error] [client 91.210.184.225] File does not exist: /var/www/fhq2015/favicon.ico
+[Thu Sep 03 09:04:40 2015] [error] [client 91.210.184.225] File does not exist: /var/www/fhq2015/favicon.ico
+[Thu Sep 03 09:10:11 2015] [error] [client 31.173.243.105] File does not exist: /var/www/fhq2015/favicon.ico
+[Thu Sep 03 09:10:12 2015] [error] [client 31.173.243.105] File does not exist: /var/www/fhq2015/favicon.ico
+[Thu Sep 03 13:13:25 2015] [error] [client 213.59.138.174] File does not exist: /var/www/fhq2015/favicon.ico
+[Thu Sep 03 13:13:25 2015] [error] [client 213.59.138.174] File does not exist: /var/www/fhq2015/favicon.ico
+[Thu Sep 03 13:15:18 2015] [error] [client 79.136.129.63] File does not exist: /var/www/fhq2015/favicon.ico, referer: http://fhq2015.keva.su/
+[Thu Sep 03 13:43:29 2015] [error] [client 46.161.177.32] File does not exist: /var/www/fhq2015/favicon.ico
+[Thu Sep 03 13:43:29 2015] [error] [client 46.161.177.32] File does not exist: /var/www/fhq2015/favicon.ico
+[Thu Sep 03 14:23:07 2015] [error] [client 37.21.145.5] File does not exist: /var/www/fhq2015/favicon.ico, referer: http://fhq2015.keva.su/
+[Thu Sep 03 15:16:49 2015] [error] [client 213.87.127.22] File does not exist: /var/www/fhq2015/favicon.ico, referer: http://fhq2015.keva.su/
+[Thu Sep 03 15:44:03 2015] [error] [client 85.117.103.208] File does not exist: /var/www/fhq2015/favicon.ico
+[Thu Sep 03 15:44:03 2015] [error] [client 85.117.103.208] File does not exist: /var/www/fhq2015/favicon.ico
+[Thu Sep 03 15:44:29 2015] [error] [client 199.16.156.124] File does not exist: /var/www/fhq2015/robots.txt
+[Thu Sep 03 15:44:30 2015] [error] [client 199.16.156.124] File does not exist: /var/www/fhq2015/robots.txt
+[Thu Sep 03 15:46:44 2015] [error] [client 74.6.254.127] File does not exist: /var/www/fhq2015/robots.txt
+[Thu Sep 03 15:53:44 2015] [error] [client 2.60.135.247] File does not exist: /var/www/fhq2015/favicon.ico
+[Thu Sep 03 15:53:44 2015] [error] [client 2.60.135.247] File does not exist: /var/www/fhq2015/favicon.ico
+[Thu Sep 03 15:59:21 2015] [error] [client 77.222.103.34] File does not exist: /var/www/fhq2015/favicon.ico, referer: http://fhq2015.keva.su/
+[Thu Sep 03 16:03:04 2015] [error] [client 37.254.224.214] File does not exist: /var/www/fhq2015/favicon.ico, referer: http://fhq2015.keva.su/
+[Thu Sep 03 16:04:04 2015] [error] [client 213.59.138.174] File does not exist: /var/www/fhq2015/images/life.jpg, referer: http://fhq2015.keva.su/
+[Thu Sep 03 16:17:11 2015] [error] [client 5.44.168.222] File does not exist: /var/www/fhq2015/images/life.jpg, referer: http://fhq2015.keva.su/
+[Thu Sep 03 16:17:11 2015] [error] [client 5.44.168.222] File does not exist: /var/www/fhq2015/favicon.ico, referer: http://fhq2015.keva.su/
+[Thu Sep 03 16:22:23 2015] [error] [client 37.21.139.238] File does not exist: /var/www/fhq2015/images/life.jpg, referer: http://fhq2015.keva.su/
+[Thu Sep 03 16:22:25 2015] [error] [client 37.21.139.238] File does not exist: /var/www/fhq2015/favicon.ico
+[Thu Sep 03 16:22:26 2015] [error] [client 37.21.139.238] File does not exist: /var/www/fhq2015/favicon.ico
+[Thu Sep 03 16:22:41 2015] [error] [client 46.161.177.32] File does not exist: /var/www/fhq2015/images/life.jpg, referer: http://fhq2015.keva.su/
+[Thu Sep 03 16:22:46 2015] [error] [client 46.161.177.32] File does not exist: /var/www/fhq2015/images/life.jpg, referer: http://fhq2015.keva.su/
+[Thu Sep 03 16:56:37 2015] [error] [client 213.59.138.174] File does not exist: /var/www/fhq2015/images/life.jpg, referer: http://fhq2015.keva.su/
+[Thu Sep 03 16:58:29 2015] [error] [client 5.44.169.90] File does not exist: /var/www/fhq2015/images/life.jpg, referer: http://fhq2015.keva.su/
+[Thu Sep 03 16:58:29 2015] [error] [client 5.44.169.90] File does not exist: /var/www/fhq2015/favicon.ico, referer: http://fhq2015.keva.su/
