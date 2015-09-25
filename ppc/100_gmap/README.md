@@ -14,7 +14,7 @@ Description:
 
 	EN: What are you trying to show these figures?
 	RU: Что пытаются вам показать этими цифрами?
-	https://drive.google.com/open?id=0BzfPP2u0U3CsaUJJMFNBS3F1Wkk
+	(https://raw.githubusercontent.com/fhq2015/tasks/master/ppc/100_gmap/files/data.js)
 
 Answer:
 
