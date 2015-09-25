@@ -1,30 +1,30 @@
-Name:
+# Name
 
-	gmap
+gmap
 
-Score:
+# Score
 
-	100
+100
 
-Subject:
+# Subject
 	
-	PPC
+PPC
 
-Description:
+# Description
 
-	EN: What are you trying to show these figures?
-	RU: Что пытаются вам показать этими цифрами?
+EN: What are you trying to show these figures?
+RU: Что пытаются вам показать этими цифрами?
 
-[file](files/data.js)
+[file](fhq2015/tasks/master/ppc/100_gmap/files/data.js)
 
-Author:
+# Author
 
-	[keva] sea-kg
+[keva] sea-kg
 
-Answer:
+# Answer
 
-	helloalien
+helloalien
 
-Solve by author:
+# Solve by author
 
 * create special program for paint this numbers like coordinates
