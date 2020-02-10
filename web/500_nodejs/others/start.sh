@@ -1,4 +1,10 @@
-SESSION_SECRET='random_string' \
-SECRET='secret_code' \
-ADMIN_PAS='your_pass' \
+#!/bin/bash
+
+npm install -g coffee-script
+npm install
+
+SESSION_SECRET=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1) \
+SECRET='Answer' \
+ADMIN_PAS=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1) \
 coffee index.coffee
+
